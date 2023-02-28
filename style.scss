@@ -1,0 +1,44 @@
+
+* {
+    outline: 1px solid yellow;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+    .page-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0px;
+        background: green;
+        width: 100vw;
+        height: 100%;
+        .create {
+
+            form {
+                display: flex;
+                flex-direction: column;
+                background: red;
+            }
+        }
+        .tamagochi{
+            padding: 8px;
+            gap: 8px;
+            .results{
+                width: 100%;
+                min-height: 100px;
+                background: blueviolet;
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .interactions {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+    
+}
