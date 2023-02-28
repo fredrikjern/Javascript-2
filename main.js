@@ -8,7 +8,7 @@ class Pet {
     this.loneliness = 50;
     this.happiness = 50;
   }
-  nap() {
+  nap() { 
     this.tiredness -= 40;
     this.hunger += 10;
     this.loneliness += 10;
