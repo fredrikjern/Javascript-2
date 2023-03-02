@@ -8,10 +8,11 @@ class Pet {
     this.loneliness = 50;
     this.happiness = 50;
   }
-  nap() { 
+  nap() {
     this.tiredness -= 40;
     this.hunger += 10;
     this.loneliness += 10;
+    this.happiness -= 10;
     console.log("You put " + this.name + " to bed :)");
     this.checkLimits();
     this.renderAnimal();
@@ -22,6 +23,16 @@ class Pet {
     console.log("You fed " + this.name);
     this.checkLimits();
     this.renderAnimal();
+  }
+  time() {
+    this.tiredness += 10;
+    this.hunger += 10;
+    this.happiness -= 10;
+    this.checkLimits();
+    this.renderAnimal();
+    setInterval(() => {
+      this.time();
+    }, 2000);
   }
   play() {
     if (this.tiredness < 70) {
@@ -76,29 +87,29 @@ function createAnimal(event) {
   let name = document.getElementById("name").value;
   console.log(name);
   let animal = document.getElementById("animals").value;
-    myAnimal = new Pet(name, animal);
-    myAnimal.nap();
+  myAnimal = new Pet(name, animal);
+  myAnimal.nap();
 }
 
 let nap = document.getElementById("nap");
 function napF(event) {
-    event.preventDefault();
-    console.log("söv");
+  event.preventDefault();
+  console.log("söv");
     myAnimal.nap();
+    myAnimal.time();
 }
 nap.addEventListener("submit", napF);
 let eat = document.getElementById("eat");
 function eatF(event) {
-    event.preventDefault();
-    console.log("Ät");
-    myAnimal.eat();
+  event.preventDefault();
+  console.log("Ät");
+  myAnimal.eat();
 }
 eat.addEventListener("submit", eatF);
 let play = document.getElementById("play");
 function playF(event) {
-    event.preventDefault();
-    console.log("Lek");
-    myAnimal.play()
-    
+  event.preventDefault();
+  console.log("Lek");
+  myAnimal.play();
 }
 play.addEventListener("submit", playF);
